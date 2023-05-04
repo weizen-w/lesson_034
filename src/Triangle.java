@@ -29,7 +29,7 @@ public class Triangle {
     return String.format("<%d, %d, %d>", a, b, c);
   }
 
-  private static boolean checkSides(int a, int b, int c) {
+  public static boolean checkSides(int a, int b, int c) {
     if (a > 0 & b > 0 & c > 0) {
       return a >= (b + c) || b >= (a + c) || c >= (b + a);
     }
