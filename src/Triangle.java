@@ -12,13 +12,27 @@ public class Triangle {
 //  При провале любой из проверок нужно вывести на экран соответствующее сообщение
 //  или выкинуть исключение.
 
-  private final int side1;
-  private final int side2;
-  private final int side3;
+  private final int a;
+  private final int b;
+  private final int c;
 
-  public Triangle(int side1, int side2, int side3) {
-    this.side1 = side1;
-    this.side2 = side2;
-    this.side3 = side3;
+  public Triangle(int a, int b, int c) {
+    if (!checkSides(a, b, c)) {
+      throw new IllegalArgumentException("Such a triangle does not exist.");
+    }
+    this.a = a;
+    this.b = b;
+    this.c = c;
+  }
+
+  public String getString() {
+    return String.format("<%d, %d, %d>", a, b, c);
+  }
+
+  private static boolean checkSides(int a, int b, int c) {
+    if (a >= 0 & b >= 0 & c >= 0) {
+      return a < (b + c) & b < (a + c) & c < (b + a);
+    }
+    return false;
   }
 }
