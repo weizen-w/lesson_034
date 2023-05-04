@@ -17,7 +17,7 @@ public class Triangle {
   private final int c;
 
   public Triangle(int a, int b, int c) {
-    if (!checkSides(a, b, c)) {
+    if (checkSides(a, b, c)) {
       throw new IllegalArgumentException("Such a triangle does not exist.");
     }
     this.a = a;
@@ -31,8 +31,8 @@ public class Triangle {
 
   private static boolean checkSides(int a, int b, int c) {
     if (a >= 0 & b >= 0 & c >= 0) {
-      return a < (b + c) & b < (a + c) & c < (b + a);
+      return !(a < (b + c) & b < (a + c) & c < (b + a));
     }
-    return false;
+    return true;
   }
 }
