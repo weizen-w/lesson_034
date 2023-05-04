@@ -30,8 +30,8 @@ public class Triangle {
   }
 
   private static boolean checkSides(int a, int b, int c) {
-    if (a >= 0 & b >= 0 & c >= 0) {
-      return !(a < (b + c) & b < (a + c) & c < (b + a));
+    if (a > 0 & b > 0 & c > 0) {
+      return a >= (b + c) || b >= (a + c) || c >= (b + a);
     }
     return true;
   }
